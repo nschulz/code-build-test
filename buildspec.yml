@@ -3,20 +3,22 @@ version: 0.1
 phases:
   install:
     commands:
-      - echo Installing Mocha...
-      - npm install -g mocha
+      - echo Installing Gulp Tools... 
+      - npm install gulp-cli gulp gulp-util gulp-less gulp-clean-css gulp-jade gulp-uglify gulp-concat pump path -g
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
-      - npm install unit.js
+      - npm install
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
-      - mocha HelloWorld.js
+      - gulp
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
+    - templates/
+    - app.js
     - HelloWorld.js
